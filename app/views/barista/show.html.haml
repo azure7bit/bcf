@@ -1,0 +1,46 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @baristum.name
+%p
+  %strong Gender:
+  = @baristum.gender
+%p
+  %strong Age:
+  = @baristum.age
+%p
+  %strong Company:
+  = @baristum.company
+%p
+  %strong Job title:
+  = @baristum.job_title
+%p
+  %strong Company address:
+  = @baristum.company_address
+%p
+  %strong City:
+  = @baristum.city
+%p
+  %strong Postal code:
+  = @baristum.postal_code
+%p
+  %strong Country:
+  = @baristum.country
+%p
+  %strong Telp:
+  = @baristum.telp
+%p
+  %strong Fax:
+  = @baristum.fax
+%p
+  %strong Mobile:
+  = @baristum.mobile
+%p
+  %strong Email:
+  = @baristum.email
+%p
+  %strong Website:
+  = @baristum.website
+= link_to 'Edit', edit_baristum_path(@baristum)
+|
+\#{link_to 'Back', barista_path}

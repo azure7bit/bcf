@@ -1,0 +1,39 @@
+%h1 Listing buyers
+%table
+  %thead
+    %tr
+      %th Name
+      %th Gender
+      %th Company
+      %th Job title
+      %th Company address
+      %th City
+      %th Postal code
+      %th Country
+      %th Telp
+      %th Fax
+      %th Mobile
+      %th Email
+      %th Website
+      %th{:colspan => "3"}
+  %tbody
+    - @buyers.each do |buyer|
+      %tr
+        %td= buyer.name
+        %td= buyer.gender
+        %td= buyer.company
+        %td= buyer.job_title
+        %td= buyer.company_address
+        %td= buyer.city
+        %td= buyer.postal_code
+        %td= buyer.country
+        %td= buyer.telp
+        %td= buyer.fax
+        %td= buyer.mobile
+        %td= buyer.email
+        %td= buyer.website
+        %td= link_to 'Show', buyer
+        %td= link_to 'Edit', edit_buyer_path(buyer)
+        %td= link_to 'Destroy', buyer, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Buyer', new_buyer_path

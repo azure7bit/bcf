@@ -463,7 +463,7 @@ span.small{
 	clear: both;
 }
 #flexiselDemo1, #flexiselDemo2, #flexiselDemo3 {
-	display: none;
+	/*display: none;*/
 }
 .nbs-flexisel-container {
 	position: relative;
@@ -3623,7 +3623,3 @@ span.yellow1 a {
 		width: 60%;
 	}
 }
-
-
-
-

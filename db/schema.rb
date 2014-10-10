@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140929073136) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20141010065849) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -31,13 +28,50 @@ ActiveRecord::Schema.define(version: 20140929073136) do
     t.datetime "updated_at"
   end
 
-  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
-  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "articles", force: true do |t|
     t.string   "title"
     t.text     "body"
     t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "barista", force: true do |t|
+    t.string   "name"
+    t.string   "gender"
+    t.date     "age"
+    t.string   "company"
+    t.string   "job_title"
+    t.text     "company_address"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "telp"
+    t.string   "fax"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "buyers", force: true do |t|
+    t.string   "name"
+    t.string   "gender"
+    t.string   "company"
+    t.string   "job_title"
+    t.text     "company_address"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "telp"
+    t.string   "fax"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,7 +96,16 @@ ActiveRecord::Schema.define(version: 20140929073136) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "visitors", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "subject"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

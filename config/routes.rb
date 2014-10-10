@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  resources :visitors
+
+  resources :barista
+
+  resources :buyers
+
   resources :articles
 
   devise_for :admins
-  devise_for :users
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -64,4 +70,5 @@ Rails.application.routes.draw do
   get 'portofolio', to: 'home#portofolio', as: 'portofolio'
   get 'about', to: 'home#about', as: 'about'
   get 'contact', to: 'home#contact', as: 'contact'
+  get 'faq', to: 'home#faq', as: 'faq'
 end

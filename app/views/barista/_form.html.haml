@@ -1,0 +1,67 @@
+= form_for(@baristum) do |f|
+  - if @baristum.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@baristum.errors.count, "error")
+        prohibited this baristum from being saved:
+      %ul
+        - @baristum.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .field
+    = f.label :gender
+    %br/
+    = f.text_field :gender
+  .field
+    = f.label :age
+    %br/
+    = f.date_select :age
+  .field
+    = f.label :company
+    %br/
+    = f.text_field :company
+  .field
+    = f.label :job_title
+    %br/
+    = f.text_field :job_title
+  .field
+    = f.label :company_address
+    %br/
+    = f.text_area :company_address
+  .field
+    = f.label :city
+    %br/
+    = f.text_field :city
+  .field
+    = f.label :postal_code
+    %br/
+    = f.text_field :postal_code
+  .field
+    = f.label :country
+    %br/
+    = f.text_field :country
+  .field
+    = f.label :telp
+    %br/
+    = f.text_field :telp
+  .field
+    = f.label :fax
+    %br/
+    = f.text_field :fax
+  .field
+    = f.label :mobile
+    %br/
+    = f.text_field :mobile
+  .field
+    = f.label :email
+    %br/
+    = f.text_field :email
+  .field
+    = f.label :website
+    %br/
+    = f.text_field :website
+  .actions
+    = f.submit

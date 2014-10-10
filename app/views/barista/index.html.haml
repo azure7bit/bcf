@@ -1,0 +1,41 @@
+%h1 Listing barista
+%table
+  %thead
+    %tr
+      %th Name
+      %th Gender
+      %th Age
+      %th Company
+      %th Job title
+      %th Company address
+      %th City
+      %th Postal code
+      %th Country
+      %th Telp
+      %th Fax
+      %th Mobile
+      %th Email
+      %th Website
+      %th{:colspan => "3"}
+  %tbody
+    - @barista.each do |baristum|
+      %tr
+        %td= baristum.name
+        %td= baristum.gender
+        %td= baristum.age
+        %td= baristum.company
+        %td= baristum.job_title
+        %td= baristum.company_address
+        %td= baristum.city
+        %td= baristum.postal_code
+        %td= baristum.country
+        %td= baristum.telp
+        %td= baristum.fax
+        %td= baristum.mobile
+        %td= baristum.email
+        %td= baristum.website
+        %td= link_to 'Show', baristum
+        %td= link_to 'Edit', edit_baristum_path(baristum)
+        %td= link_to 'Destroy', baristum, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Baristum', new_baristum_path

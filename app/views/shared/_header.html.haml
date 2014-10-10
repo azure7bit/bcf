@@ -1,0 +1,18 @@
+.header
+  .wrap
+    .logo
+      = link_to root_path do
+        = image_tag "logo.png", alt: 'Bandung Coffee Festival'
+    .cssmenu
+      %ul
+        %li
+          %a{:href => root_path} Home
+        %li
+          %a{:href => portofolio_path} Gallery
+        %li
+          %a{:href => about_path} About Us
+        %li
+          %a{:href => contact_path} Contact
+        %li
+          %a{:href => faq_path} Faq
+    .clear

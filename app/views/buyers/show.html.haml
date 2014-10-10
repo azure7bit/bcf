@@ -1,0 +1,43 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @buyer.name
+%p
+  %strong Gender:
+  = @buyer.gender
+%p
+  %strong Company:
+  = @buyer.company
+%p
+  %strong Job title:
+  = @buyer.job_title
+%p
+  %strong Company address:
+  = @buyer.company_address
+%p
+  %strong City:
+  = @buyer.city
+%p
+  %strong Postal code:
+  = @buyer.postal_code
+%p
+  %strong Country:
+  = @buyer.country
+%p
+  %strong Telp:
+  = @buyer.telp
+%p
+  %strong Fax:
+  = @buyer.fax
+%p
+  %strong Mobile:
+  = @buyer.mobile
+%p
+  %strong Email:
+  = @buyer.email
+%p
+  %strong Website:
+  = @buyer.website
+= link_to 'Edit', edit_buyer_path(@buyer)
+|
+\#{link_to 'Back', buyers_path}

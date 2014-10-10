@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @visitor.name
+%p
+  %strong Email:
+  = @visitor.email
+%p
+  %strong Subject:
+  = @visitor.subject
+%p
+  %strong Message:
+  = @visitor.message
+= link_to 'Edit', edit_visitor_path(@visitor)
+|
+\#{link_to 'Back', visitors_path}
