@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins
+
   resources :visitors
 
   resources :barista
@@ -6,8 +8,6 @@ Rails.application.routes.draw do
   resources :buyers
 
   resources :articles
-
-  devise_for :admins
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
