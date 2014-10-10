@@ -82,4 +82,15 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+
+  config.action_mailer.default_url_options = { :host => 'bandungcoffeefestival.herokuapp.com' }
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "bandungcoffeefestival.herokuapp.com",
+    :user_name => "bandungcoffee.fest@gmail.com",
+    :password => "youngtryishere",
+    :authentication => "plain",
+    :enable_starttls_auto => true
+  }
 end
