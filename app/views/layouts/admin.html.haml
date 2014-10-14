@@ -1,0 +1,21 @@
+%head
+  %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+  = csrf_meta_tag
+  = stylesheet_link_tag "admin", 'data-turbolinks-track' => true
+  = javascript_include_tag 'jquery.min', 'data-turbolinks-track' => true
+%body
+  .container
+    .text-center
+      %h2 Bandung Coffee Festival
+    .row
+      .col-lg-3
+      .col-lg-6
+        = yield
+      .col-lg-3
+
+  :javascript
+    $(document).ready(function(){
+      $("#admin_email").addClass("form-control");
+      $("#admin_password").addClass("form-control");
+      $("input[type='submit']").addClass("btn btn-primary");
+    });

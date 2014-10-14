@@ -1,1 +1,1 @@
-Rails.application.config.assets.precompile += %w( body.js )
+Rails.application.config.assets.precompile += %w( body.js jquery.min.js admin.css )

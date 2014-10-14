@@ -23,6 +23,10 @@ RailsAdmin.config do |config|
     warden.authenticate! scope: :admin
   end
 
+  config.authorize_with do
+    redirect_to main_app.new_admin_session_path unless current_admin
+  end
+
   config.current_user_method(&:current_admin)
 
   config.actions do
