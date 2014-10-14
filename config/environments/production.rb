@@ -83,7 +83,8 @@ Rails.application.configure do
 
   config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 
-  config.action_mailer.default_url_options = { :host => 'bandungcoffeefestival.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'bandungcoffeefestival.com' }
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
     :port => 587,
@@ -92,5 +93,13 @@ Rails.application.configure do
     :password => "youngtryishere",
     :authentication => "plain",
     :enable_starttls_auto => true
+  }
+
+  config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[bandungcoffeefestival] ",
+    :sender_address => %{"errors_notifier" <notifier@bandungcoffeefestival.com>},
+    :exception_recipients => %w{azure7bit@tri.blackberry.com},
+    :background_sections => %w{my_section1 my_section2 backtrace data}
   }
 end

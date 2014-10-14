@@ -6,7 +6,7 @@ gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3-ruby', :require => 'sqlite3', group: 'development'
 
-gem 'pg', group: 'production'
+# gem 'pg', group: 'production'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,6 +30,12 @@ group :development do
   gem 'spring'
   gem 'capistrano','2.13.5'
   gem 'capistrano-ext','1.2.1'
+end
+
+group :production do
+  gem 'exception_notification'
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Use ActiveModel has_secure_password
