@@ -4,114 +4,12 @@
       .section.group
         .col_1_of_3.span_1_of_3
           %h3 About Us
-          %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          %p The Bandung Coffee Festival promises to be an unmissable event for discerning coffee lovers and those working in the coffee scene. Buyers and sellers are more than welcome. From harvesting to brewing and artisan catering to equipment, this show will showcase every aspect of the coffee world and all the enjoyment that goes with it. The festival will feature over 25 coffee estates at Kabupaten Bandung District coffee, coffee shops, long business hours, coffee competition, coffee auctions, and gourmet food stalls, tastings and demonstrations from baristas, interactive workshops, and many more.
           %button.btn1.btn-8.btn-8b Learn more
-          %h4 Photo Stream
-          .gallery
-            %ul
-              %li
-                %a.popup-with-zoom-anim{:href => "#small-dialog1"}
-                  %img{:alt => "", :src => "/assets/g1.jpg"}/
-              %li
-                %a.popup-with-zoom-anim{:href => "#small-dialog1"}
-                  %img{:alt => "", :src => "/assets/g2.jpg"}/
-              %li
-                %a.popup-with-zoom-anim{:href => "#small-dialog1"}
-                  %img{:alt => "", :src => "/assets/g3.jpg"}/
-              %li
-                %a.popup-with-zoom-anim{:href => "#small-dialog1"}
-                  %img{:alt => "", :src => "/assets/g4.jpg"}/
-              %li
-                %a.popup-with-zoom-anim{:href => "#small-dialog1"}
-                  %img{:alt => "", :src => "/assets/g5.jpg"}/
-              %li
-                %a.popup-with-zoom-anim{:href => "#small-dialog1"}
-                  %img{:alt => "", :src => "/assets/g6.jpg"}/
-              #small-dialog1.mfp-hide
-                .pop_up
-                  %h2 A Sample Photo Stream
-                  %img{:alt => "", :src => "/assets/g_zoom.jpg"}/
         .col_1_of_3.span_1_of_3
-          %h3 Latest tweets
-          .footer-list
-            %ul
-              %li
-                %img{:alt => "", :src => "/assets/tw.png"}/
-                %p
-                  Lorem ipsum
-                  %span.yellow
-                    %a{:href => "#"} consectetuer
-                  adipiscing elit, seddia
-                  %br/
-                  %span.small  web design
-                .clear
-              %li
-                %img{:alt => "", :src => "/assets/tw.png"}/
-                %p
-                  Lorem ipsum
-                  %span.yellow
-                    %a{:href => "#"} consectetuer
-                  adipiscing elit, seddia
-                  %br/
-                  %span.small  web design
-                .clear
-              %li
-                %img{:alt => "", :src => "/assets/tw.png"}/
-                %p
-                  Lorem ipsum dolor sit amet,
-                  %span.yellow
-                    %a{:href => "#"} consectetuer
-                  adipiscing elit, sed diam nonummy nibh
-                  %br/
-                  %span.small  web design
-                .clear
-              %li
-                %img{:alt => "", :src => "/assets/tw.png"}/
-                %p
-                  Lorem ipsum dolor sit amet,
-                  %span.yellow
-                    %a{:href => "#"} consectetuer
-                  adipiscing elit, sed diam nonummy nibh
-                  %br/
-                  %span.small  web design
-                .clear
-              %li
-                %img{:alt => "", :src => "/assets/tw.png"}/
-                %p
-                  Lorem ipsum
-                  %span.yellow
-                    %a{:href => "#"} consectetuer
-                  adipiscing elit, seddia
-                  %br/
-                  %span.small  web design
-                .clear
-          .social-icons
-            %h4 Social Connecting
-            %ul
-              %li.facebook
-                %a{:href => "#"}
-                  %span
-              %li.google
-                %a{:href => "#"}
-                  %span
-              %li.twitter
-                %a{:href => "#"}
-                  %span
-              %li.linkedin
-                %a{:href => "#"}
-                  %span
-              %li.youtube
-                %a{:href => "#"}
-                  %span
-              %li.bloger
-                %a{:href => "#"}
-                  %span
-              %li.rss
-                %a{:href => "#"}
-                  %span
-              %li.dribble
-                %a{:href => "#"}
-                  %span
+          = link_to "Tweets by @bdg_coffee", "https://twitter.com/bdg_coffee", class: "twitter-timeline", :"data-dnt" => true, :"data-widget-id" => "524416786469376001"
+          :javascript
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
         .col_1_of_3.span_1_of_3
           %h3 Contact info
           .footer-list
@@ -119,16 +17,7 @@
               %li
                 %img{:alt => "", :src => "/assets/address.png"}/
                 %p
-                  Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh
-                  %br>/
-                   Bandung Coffee Festival
-                .clear
-              %li
-                %img{:alt => "", :src => "/assets/phone.png"}/
-                %p
-                  Phone: +1 800 258 2689
-                  %br>/
-                              +1 800 258 2689
+                  MG COFFEE ACADEMY, Setrasari Mall kav C2 no 31, Jl. Prof. Dr. Ir. Soetami, Bandung - West Java, Indonesia
                 .clear
               %li
                 %img{:alt => "", :src => "/assets/msg.png"}/
@@ -139,7 +28,7 @@
                 .clear
           .follow
             %h4 Follow Us
-            %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+            %p The Bandung Coffee Festival celebrates West Java?s bustling and vibrant coffee scene. Its is a show dedicated to celebrating all that's new and exciting on the Coffee landscape.
             .search
               %form
                 %input{:type => "text", :value => ""}/
@@ -149,7 +38,7 @@
     .wrap
       .copy
         %p.copy
-          © 2014 Template by
+          © 2014 Copyright by
           %a{:href => "#", :target => "_blank"} Bandung Coffee Festival
       .footer-nav
         %ul

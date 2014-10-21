@@ -6,92 +6,11 @@
           .slider-left
             %h3 BANDUNG
             %h4 COFFEE FESTIVAL
-            %p.top Any Creative Project is Unique
-            %p.middle and should be provided with
-            %p.bottom the appropriate quality
-            / %button.btn.btn-8.btn-8b
-            / %button.btn.btn-8.btn-8b
+            %p.top The Bandung Coffee Festival celebrates West Java’s bustling and vibrant coffee scene.
+            %p.middle Its is a show dedicated to celebrating
+            %p.bottom all that's new and exciting on the Coffee landscape
             = link_to "Register Buyer", new_buyer_path, class: "btn btn-8 btn-8b"
             = link_to "Register Barista Competition", new_baristum_path, class: "btn btn-8 btn-8b"
-            #small-dialog.mfp-hide
-              .plans_table
-                %table.compare_plan{:cellspacing => "0", :width => "100%"}
-                  %thead
-                    %tr
-                      %th.plans-list
-                        %h3 Plan Features
-                      %th.plans-list
-                        %h3 Basic
-                        %h4
-                          $5
-                          %small /month
-                      %th.plans-list
-                        %h3 Economy
-                        %h4
-                          $9
-                          %small /month
-                  %tfoot
-                    %tr
-                      %td
-                      %td.order_now
-                        %a.scroll{:href => "#account"}
-                          %button Order Now
-                      %td.order_now
-                        %a.scroll{:href => "#account"}
-                          %button Order Now
-                  %tbody
-                    %tr
-                      %td.plan_list_title Web Space
-                      %td.price_body Unlimited
-                      %td.price_body Unlimited
-                    %tr
-                      %td.plan_list_title Bandwidth
-                      %td.price_body Unlimited
-                      %td.price_body Unlimited
-                    %tr
-                      %td.plan_list_title 25 GB Storage
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/icon-remove.png"}/
-                      %td.price_body Unlimited
-                    %tr
-                      %td.plan_list_title iPhone App
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/icon-remove.png"}/
-                      %td.price_body Unlimited
-                    %tr
-                      %td.plan_list_title Enhanced Security
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/tickmark-icon.png"}/
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/tickmark-icon.png"}/
-                    %tr
-                      %td.plan_list_title E-mail
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/tickmark-icon.png"}/
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/tickmark-icon.png"}/
-                    %tr
-                      %td.plan_list_title Wordpress Support
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/icon-remove.png"}/
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/tickmark-icon.png"}/
-                    %tr
-                      %td.plan_list_title 24/7 Support
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/tickmark-icon.png"}/
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/tickmark-icon.png"}/
-                    %tr
-                      %td.plan_list_title Backups
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/tickmark-icon.png"}/
-                      %td.price_body
-                        %img{:alt => "img", :src => "/assets/tickmark-icon.png"}/
-                    %tr
-                      %td.plan_list_title Dedicated IP
-                      %td.price_body $2/mo
-                      %td.price_body $2/mo
           .slider-right
             %img{:src => "/assets/banner-left.png"}/
           .clear
@@ -103,13 +22,9 @@
             .slider-left
               %h3 BANDUNG
               %h4 COFFEE FESTIVAL
-              %p.top Any Creative Project is Unique
-              %p.middle and should be provided with
-              %p.bottom the appropriate quality
-              / %button.btn.btn-8.btn-8b
-              /   %a.popup-with-zoom-anim{:href => "#small-dialog"} Register Buyer
-              / %button.btn.btn-8.btn-8b
-              /   %a.popup-with-zoom-anim{:href => "#small-dialog"} Register Barista Competition
+              %p.top The Bandung Coffee Festival celebrates West Java’s bustling and vibrant coffee scene.
+              %p.middle Its is a show dedicated to celebrating
+              %p.bottom all that's new and exciting on the Coffee landscape
               = link_to "Register Buyer", new_buyer_path, class: "btn btn-8 btn-8b"
               = link_to "Register Barista Competition", new_baristum_path, class: "btn btn-8 btn-8b"
             .clear
@@ -128,10 +43,45 @@
           %a{:href => "#"} 4
 %br
 %br
+.main
+  .content-top
+    .wrap
+      %h3 Welcome to the first ever Bandung Coffee Festival
+      %h5 The Bandung Coffee Festival promises to be an unmissable event for discerning coffee lovers and those working in the coffee scene. Buyers and sellers are more than welcome.
+      .section.group
+        .col_1_of_4.span_1_of_4
+          .grid1
+            = link_to about_path do
+              %img{alt: "", src: "assets/icon1.png"}
+              %h4 About BCF 2014
+          .desc
+            %p The First Ever Coffee Festival in Bandung. Lets join!
+        .col_1_of_4.span_1_of_4
+          .grid1
+            = link_to portofolio_path do
+              %img{alt: "", src: "assets/icon1.png"}
+              %h4 Coffee Gallery
+          .desc
+            %p Show photo of yours & Share the moments of happiness
+        .col_1_of_4.span_1_of_4
+          .grid1
+            = link_to new_buyer_path do
+              %img{alt: "", src: "assets/icon2.png"}
+              %h4 Register Buyer
+          .desc
+            %p Register here for All Buyers for Free!
+        .col_1_of_4.span_1_of_4
+          .grid1
+            = link_to new_baristum_path do
+              %img{alt: "", src: "assets/icon2.png"}
+              %h4 Register Barista
+          .desc
+            %p Register to Barista Competition here
+        .clear
 .content-bottom
   %h2
-    %span Our Clients
-  %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+    %span Partners
+  %p Sponsors and Media Partnership by
   %ul#flexiselDemo3
     %li
       %img{:src => "/assets/client1.jpg"}
@@ -160,96 +110,26 @@
             %img{:alt => "", :src => "/assets/icon1.png"}/
             %h4 About Coffee
           .desc
-            %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+            %p The First Ever Coffee Festival in Bandung. Lets join!
         .col_1_of_4.span_1_of_4
           .grid1
             %img{:alt => "", :src => "/assets/icon1.png"}/
             %h4 Coffee
           .desc
-            %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+            %p Show photo of yours & Share the moments of happiness
         .col_1_of_4.span_1_of_4
           .grid1
             %img{:alt => "", :src => "/assets/icon2.png"}/
             %h4 Coffee Making
           .desc
-            %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+            %p Register here for All Buyers for Free!
         .col_1_of_4.span_1_of_4
           .grid1
             %img{:alt => "", :src => "/assets/icon3.png"}/
             %h4 Coffee Loved
           .desc
-            %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+            %p Register to Barista Competition here
         .clear
-  .content-middle
-    %h2
-      %span WHAT'S NEW
-    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-    #container
-      #main1
-        %ul#tiles
-          %li
-            %a.cboxElement{:href => "/assets/t-pic1.jpg", :rel => "lightbox"}
-              %img{:height => "283", :src => "/assets/pic1.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/t-pic2.jpg", :rel => "lightbox"}
-              %img{:height => "300", :src => "/assets/pic2.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/t-pic3.jpg", :rel => "lightbox"}
-              %img{:height => "252", :src => "/assets/pic3.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/t-pic4.jpg", :rel => "lightbox"}
-              %img{:height => "158", :src => "/assets/pic4.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/t-pic5.jpg", :rel => "lightbox"}
-              %img{:height => "265", :src => "/assets/pic5.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic6.jpg", :rel => "lightbox"}
-              %img{:height => "158", :src => "/assets/pic6.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic7.jpg", :rel => "lightbox"}
-              %img{:height => "200", :src => "/assets/pic7.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic8.jpg", :rel => "lightbox"}
-              %img{:height => "200", :src => "/assets/pic8.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic9.jpg", :rel => "lightbox"}
-              %img{:height => "133", :src => "/assets/pic9.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic10.jpg", :rel => "lightbox"}
-              %img{:height => "193", :src => "/assets/pic10.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic11.jpg", :rel => "lightbox"}
-              %img{:height => "283", :src => "/assets/pic11.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/t-pic1.jpg", :rel => "lightbox"}
-              %img{:height => "283", :src => "/assets/pic1.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/t-pic2.jpg", :rel => "lightbox"}
-              %img{:height => "300", :src => "/assets/pic2.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/t-pic3.jpg", :rel => "lightbox"}
-              %img{:height => "252", :src => "/assets/pic3.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/t-pic4.jpg", :rel => "lightbox"}
-              %img{:height => "158", :src => "/assets/pic4.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/t-pic5.jpg", :rel => "lightbox"}
-              %img{:height => "265", :src => "/assets/pic5.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic6.jpg", :rel => "lightbox"}
-              %img{:height => "158", :src => "/assets/pic6.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic7.jpg", :rel => "lightbox"}
-              %img{:height => "200", :src => "/assets/pic7.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic8.jpg", :rel => "lightbox"}
-              %img{:height => "200", :src => "/assets/pic8.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic9.jpg", :rel => "lightbox"}
-              %img{:height => "133", :src => "/assets/pic9.jpg", :width => "200"}/
-          %li
-            %a.cboxElement{:href => "/assets/pic10.jpg", :rel => "lightbox"}
-              %img{:height => "193", :src => "/assets/pic10.jpg", :width => "200"}/
     %link{:href => "/assets/colorbox.css", :rel => "stylesheet"}/
     %script{:src => "/assets/jquery.imagesloaded.js"}
     %script{:src => "/assets/jquery.colorbox-min.js"}
