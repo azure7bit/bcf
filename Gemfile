@@ -30,6 +30,7 @@ group :development do
   gem 'spring'
   gem 'capistrano','2.13.5'
   gem 'capistrano-ext','1.2.1'
+  gem 'mailcatcher'
 end
 
 group :production do
@@ -55,3 +56,4 @@ gem 'rails_admin'
 gem 'carrierwave'
 gem 'thin'
 gem 'countries'
+gem 'friendly_id'

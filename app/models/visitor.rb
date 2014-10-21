@@ -3,6 +3,6 @@ class Visitor < ActiveRecord::Base
 
   private
     def send_confirmation
-      Contact.send_visitor_confirmation(self).deliver
+      	Contact.send_to_us(self).deliver if Contact.send_visitor_confirmation(self).deliver
     end
 end

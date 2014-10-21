@@ -19,4 +19,11 @@ class Contact < ActionMailer::Base
     mail(:to => @email, subject: "Thanks For Contact Us")
   end
 
+  def send_to_us(visitor)
+    @email = visitor.email
+    @name = visitor.name
+    @message = visitor.message
+    mail(:to => "info@bandungcoffeefestival.com", subject: visitor.subject)
+  end
+
 end

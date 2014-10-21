@@ -30,9 +30,7 @@
             %h4 Follow Us
             %p The Bandung Coffee Festival celebrates West Java?s bustling and vibrant coffee scene. Its is a show dedicated to celebrating all that's new and exciting on the Coffee landscape.
             .search
-              %form
-                %input{:type => "text", :value => ""}/
-                %input{:type => "submit", :value => ""}/
+
         .clear
   .footer-bottom
     .wrap
@@ -46,6 +44,7 @@
             %a{:href => root_path} Home
           %li
             %a{:href => portofolio_path} Gallery
+          %li= link_to "Events", articles_path
           %li
             %a{:href => about_path} About Us
           %li
