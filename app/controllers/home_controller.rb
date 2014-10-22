@@ -10,4 +10,12 @@ class HomeController < ApplicationController
   end
 
   def faq;end
+
+  def iobc;end
+
+  def workshops;end
+
+  def exhibitions;end
+
+  def auctions;end
 end

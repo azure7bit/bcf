@@ -54,7 +54,6 @@ body{
 }
 .cssmenu ul li {
 	display: inline-block;
-	z-index: 999;
 }
 .cssmenu ul li a {
 	margin-top:15px;
@@ -74,15 +73,6 @@ body{
 	-moz-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
-}
-
-.cssmenu ul li.sub a{
-background-color: #fff;
-
-}
-
-.cssmenu ul li.sub a:hover{
-	background:#d18c59;
 }
 /**** Slider *****/
 .index-banner{
@@ -1444,7 +1434,6 @@ li.last-comment{
 	background: #000;
 	float:right;
 	display: inline-block;
-	z-index: 999;
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;
 	-ms-transition: all 0.3s ease-out;
@@ -2333,7 +2322,6 @@ span.yellow1 a {
 		padding: 5px 5px;
 		margin: 10px 0px;
 		font-size: 1em;
-
 	}
 	.cssmenu {
 		padding-top: 5px;
@@ -2819,11 +2807,6 @@ span.yellow1 a {
 	.cssmenu {
 		padding-top: 5px;
 	}
-
-	.cssmenu ul li{
-		z-index: 999 !important;
-	}
-
 	.btn {
 		padding: 8px 5px;
 		font-size: 12px;

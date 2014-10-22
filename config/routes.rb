@@ -75,4 +75,8 @@ Rails.application.routes.draw do
   get 'about', to: 'home#about', as: 'about'
   get 'contact', to: 'home#contact', as: 'contact'
   get 'faq', to: 'home#faq', as: 'faq'
+  get 'iobc', to: 'home#iobc', as: 'iobc'
+  get 'workshops', to: 'home#workshops', as: 'workshops'
+  get 'exhibitions', to: 'home#exhibitions', as: 'exhibitions'
+  get 'auctions', to: 'home#auctions', as: 'auctions'
 end

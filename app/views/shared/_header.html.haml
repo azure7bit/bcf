@@ -5,15 +5,20 @@
         = image_tag "logo.png", alt: 'Bandung Coffee Festival'
     .cssmenu
       %ul
+        %li= link_to "Home", root_path
         %li
-          %a{:href => root_path} Home
+          = link_to "Events", "#"
+          %ul
+            %li.sub= link_to 'Exhibition', exhibitions_path
+            %li.sub= link_to 'Coffee Competition & Auction', auctions_path
+            %li.sub= link_to 'IOBC', iobc_path
+            %li.sub= link_to 'Workshop', workshops_path
         %li
-          %a{:href => portofolio_path} Gallery
-        %li= link_to "Events", articles_path
-        %li
-          %a{:href => about_path} About Us
-        %li
-          %a{:href => contact_path} Contact
-        %li
-          %a{:href => faq_path} Faq
+          = link_to "Registrations", "#"
+          %ul
+            %li.sub= link_to "Buyers", new_buyer_path
+            %li.sub= link_to "Register Barista Championship", new_baristum_path
+        %li= link_to "About Us", about_path
+        %li= link_to "Contact", contact_path
+        %li= link_to "FAQ", faq_path
     .clear
