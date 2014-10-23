@@ -5,17 +5,6 @@
 .main
   .project-wrapper
     .wrap
-      .cont.span_2_of_contact
-        .map
-          %iframe{:frameborder => "0", :height => "400", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "https://maps.google.co.in/maps?f=q&source=s_q&hl=en&geocode=&q=Lighthouse+Point,+FL,+United+States&aq=4&oq=light&sll=26.275636,-80.087265&sspn=0.04941,0.104628&ie=UTF8&hq=&hnear=Lighthouse+Point,+Broward,+Florida,+United+States&t=m&z=14&ll=26.275636,-80.087265&output=embed", :width => "100%"}
-          %br/
-          %small
-            %a{:href => "https://maps.google.co.in/maps?f=q&source=embed&hl=en&geocode=&q=Lighthouse+Point,+FL,+United+States&aq=4&oq=light&sll=26.275636,-80.087265&sspn=0.04941,0.104628&ie=UTF8&hq=&hnear=Lighthouse+Point,+Broward,+Florida,+United+States&t=m&z=14&ll=26.275636,-80.087265", :style => "color:#666;text-align:left;font-size:12px"}
-      .lsidebar.span_1_of_about
-        %img{:alt => "", :src => "/assets/layout.jpg"}/
-        %br/
-        %br/
-    .wrap
       .contact
         .cont.span_2_of_contact
           %h5.leave Send Us A Message
@@ -30,7 +19,7 @@
               .clear
               = f.text_area :message, class: "text", placeholder: "Message...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Message...';}", required: true
               .clear
-            = f.submit :register, value: "Send", class: 'submit'
+              = f.submit :register, value: "Send", class: 'submit'
         .lsidebar.span_1_of_about
           %h5.leave Contact Info
           .clear

@@ -12,31 +12,28 @@
           %small
             %a{:href => "https://maps.google.co.in/maps?f=q&source=embed&hl=en&geocode=&q=Lighthouse+Point,+FL,+United+States&aq=4&oq=light&sll=26.275636,-80.087265&sspn=0.04941,0.104628&ie=UTF8&hq=&hnear=Lighthouse+Point,+Broward,+Florida,+United+States&t=m&z=14&ll=26.275636,-80.087265", :style => "color:#666;text-align:left;font-size:12px"}
       .lsidebar.span_1_of_about
-        %img{:alt => "", :src => "/assets/layout.jpg"}/
-        %br/
-        %br/
+        %img{:alt => "", :src => "/assets/layout.jpg", height: '400px'}/
     .wrap
       .contact
         .cont.span_2_of_contact
-          %h5.leave Send Us A Message
-          .clear
           = form_for(@baristum) do |f|
             .contact-to.clearfix
               = f.text_field :name, class: "text", placeholder: "Name...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Name...';}", required: true
               .clear
-              / = f.select :gender, options_for_select([["Male", "Male"], ["Female", "Female"]])
-              / .clear
-              = f.email_field :email, class: "text", placeholder: "Email...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Email...';}", required: true
+              = f.text_field :gender, class: "text", placeholder: "Gender...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Gender...';}", required: true
+              .clear
+              = f.label :age
+              = f.date_select :age
               .clear
               = f.text_field :company, class: "text", placeholder: "Company...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Company...';}", required: true
               .clear
-              = f.text_area :company_address, class: "text", placeholder: "Address...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Address...';}", required: true
-              .clear
               = f.text_field :job_title, class: "text", placeholder: "Job Title...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Job Title...';}", required: true
+              .clear
+              = f.text_area :company_address, class: "text", placeholder: "Address...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Address...';}", required: true
               .clear
               = f.text_field :city, class: "text", placeholder: "City...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'City...';}", required: true
               .clear
-              = f.text_field :postal_code, class: "text", placeholder: "Company...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Postal Code...';}", required: true
+              = f.text_field :postal_code, class: "text", placeholder: "Postal code...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Postal Code...';}", required: true
               .clear
               = f.text_field :country, class: "text", placeholder: "Country...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Country...';}", required: true
               .clear
@@ -46,7 +43,7 @@
               .clear
               = f.phone_field :mobile, class: "text", placeholder: "Mobile...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Mobile...';}", required: true
               .clear
-              = f.phone_field :website, class: "text", placeholder: "Website...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Website...';}", required: true
+              = f.email_field :email, class: "text", placeholder: "Email...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Email...';}", required: true
               .clear
             = f.submit :register, value: "Register", class: 'submit'
         .lsidebar.span_1_of_about
@@ -56,14 +53,8 @@
             %ul
               %li
                 %img{:alt => "", :src => "/assets/address.png"}/
-                %p Lorem ipsum dolor sit amet, adipiscing elit, sed diam nonummy nibh
-                .clear
-              %li
-                %img{:alt => "", :src => "/assets/phone.png"}/
                 %p
-                  Phone: +1 800 258 2689
-                  %br>/
-                  \&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;+1 800 258 2689
+                  MG COFFEE ACADEMY, Setrasari Mall kav C2 no 31, Jl. Prof. Dr. Ir. Soetami, Bandung - West Java, Indonesia
                 .clear
               %li
                 %img{:alt => "", :src => "/assets/msg.png"}/
