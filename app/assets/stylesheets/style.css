@@ -3683,3 +3683,25 @@ li:hover > ul {
 	height: 20px;
 	width: 100%;
 }
+.download{
+	position: absolute;
+	margin-top: 300px;
+	margin-left: 50px;
+}
+.layout{
+	max-width: 700px;
+	height: auto;
+}
+.logosm{
+	position: absolute;
+	margin-top: 0px;
+	margin-left: 20px;
+	max-width: 300px;
+	height: auto;
+}
+.ndas{
+	position: absolute;
+	text-align:left; !important
+	width: 50%;
+	margin-top: 20px;
+}
