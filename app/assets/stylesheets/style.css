@@ -3699,9 +3699,3 @@ li:hover > ul {
 	max-width: 300px;
 	height: auto;
 }
-.ndas{
-	position: absolute;
-	text-align:left; !important
-	width: 50%;
-	margin-top: 20px;
-}
