@@ -7,8 +7,8 @@
     .wrap
       .section.group
         .cont.span_2_of_about
-          %img.layout{:alt => "Layout", :src => "../assets/layout-mini.png"}/
-          %img.logosm{:alt => "Layout", :src => "../assets/logo-date-sm.png"}/
-          %a{:href => ""}
-            %img.download{:src => "../assets/downloadfloorplan.png"}/
+          %img.layout{:alt => "Layout", :src => "assets/layout-mini.png"}/
+          %img.logosm{:alt => "Layout", :src => "assets/logo-date-sm.png"}/
+          = link_to download_path do
+            = image_tag "downloadfloorplan.png", class: 'download'
         .clear

@@ -20,23 +20,23 @@
           %br
           %br
           %p
-            for register yourself as a buyer,  
-            %a{:href => ""}
-            %img.klik{:src => "../assets/click.png"}/
+            for register yourself as a buyer,
+            = link_to new_buyer_path do
+              = image_tag "click.png", class: 'klik'
           %br
           %br
             \----
           %br
           %p
-            Business hours is when the coffee buyers all over the world taste and bid for coffee. The hours contain coffee competition from many estates and auction session. Newest world standard of coffee tasting will be applied. Our business hours will provide you the opportunity to join the coffee auctions. 
+            Business hours is when the coffee buyers all over the world taste and bid for coffee. The hours contain coffee competition from many estates and auction session. Newest world standard of coffee tasting will be applied. Our business hours will provide you the opportunity to join the coffee auctions.
           %p
           %br
             Please register as a buyer :
-            %a{:href => ""}
-            %img.klik{:src => "../assets/click.png"}/
+            = link_to new_baristum_path do
+              = image_tag "click.png", class: 'klik'
             or email us :
           %strong
-            %i info@bandungcoffeefestival.com
+            %i= mail_to "info@bandungcoffeefestival.com"
           %br
           %br
           %p

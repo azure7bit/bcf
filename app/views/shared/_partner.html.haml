@@ -1,20 +1,42 @@
 .content-bottom
   %h2
-    %span
-      Partners
-      %p Sponsors and Media Partnership by
-      %ul#flexiselDemo3
-        %li
-        %img{:src => "assets/client1.jpg"}/
-        %li
-          %img{:src => "assets/client2.jpg"}/
-        %li
-          %img{:src => "assets/client3.jpg"}/
-        %li
-          %img{:src => "assets/client4.jpg"}/
-        %li
-          %img{:src => "assets/client5.jpg"}/
-        %li
-          %img{:src => "assets/client6.jpg"}/
-        %li
-          %img{:src => "assets/client7.jpg"}/
+    %span Partners
+  %p Sponsors and Media Partnership by
+  %ul#flexiselDemo3
+    %li
+      %img{:src => "/assets/client1.jpg"}
+    %li
+      %img{:src => "/assets/client2.jpg"}
+    %li
+      %img{:src => "/assets/client3.jpg"}
+    %li
+      %img{:src => "/assets/client4.jpg"}
+    %li
+      %img{:src => "/assets/client5.jpg"}
+    %li
+      %img{:src => "/assets/client6.jpg"}
+    %li
+      %img{:src => "/assets/client7.jpg"}
+    %li
+      %img{:src => "/assets/client8.jpg"}
+
+    %link{:href => "/assets/colorbox.css", :rel => "stylesheet"}/
+    %script{:src => "/assets/jquery.imagesloaded.js"}
+    %script{:src => "/assets/jquery.colorbox-min.js"}
+    %script{:src => "/assets/jquery.wookmark.js"}
+    :javascript
+      (function ($){
+        $('#tiles').imagesLoaded(function() {
+          var options = {
+            autoResize: true,
+            container: $('#main1'),
+            offset: 2,
+            itemWidth:200
+          };
+          var handler = $('#tiles li');
+          handler.wookmark(options);
+          $('a', handler).colorbox({
+            rel: 'lightbox'
+          });
+        });
+      })(jQuery);

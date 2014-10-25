@@ -78,24 +78,3 @@
           .desc
             %p Register to Barista Competition here
         .clear
-
-    %link{:href => "/assets/colorbox.css", :rel => "stylesheet"}/
-    %script{:src => "/assets/jquery.imagesloaded.js"}
-    %script{:src => "/assets/jquery.colorbox-min.js"}
-    %script{:src => "/assets/jquery.wookmark.js"}
-    :javascript
-      (function ($){
-        $('#tiles').imagesLoaded(function() {
-          var options = {
-            autoResize: true,
-            container: $('#main1'),
-            offset: 2,
-            itemWidth:200
-          };
-          var handler = $('#tiles li');
-          handler.wookmark(options);
-          $('a', handler).colorbox({
-            rel: 'lightbox'
-          });
-        });
-      })(jQuery);

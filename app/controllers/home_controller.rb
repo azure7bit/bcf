@@ -18,4 +18,8 @@ class HomeController < ApplicationController
   def exhibitions;end
 
   def auctions;end
+
+  def download_map
+    send_file Rails.root.join('app/assets/images/layout.jpg'), :type => 'image/jpg', filename: 'map.jpg'
+  end
 end
