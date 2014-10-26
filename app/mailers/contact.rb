@@ -4,19 +4,19 @@ class Contact < ActionMailer::Base
   def send_buyer_confirmation(buyer)
   	@email = buyer.email
   	@name = buyer.name
-    mail(:to => @email, subject: "Buyer Registration")
+    mail(:to => %w{@email info@bandungcoffeefestival.com}, subject: "Buyer Registration")
   end
 
   def send_barista_confirmation(barista)
   	@email = barista.email
   	@name = barista.name
-    mail(:to => @email, subject: "Barista Registration")
+    mail(:to => %w{@email info@bandungcoffeefestival.com}, subject: "Barista Registration")
   end
 
   def send_visitor_confirmation(visitor)
   	@email = visitor.email
   	@name = visitor.name
-    mail(:to => @email, subject: "Thanks For Contact Us")
+    mail(:to => %w{@email info@bandungcoffeefestival.com}, subject: "Thanks For Contact Us")
   end
 
   def send_to_us(visitor)

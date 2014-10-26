@@ -1,240 +1,227 @@
 $(function() {
-	// ======================= imagesLoaded Plugin ===============================
-	// https://github.com/desandro/imagesloaded
+  $.fn.imagesLoaded     = function( callback ) {
+  var $images = this.find('img'),
+    len   = $images.length,
+    _this   = this,
+    blank   = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
-	// $('#my-container').imagesLoaded(myFunction)
-	// execute a callback when all images have loaded.
-	// needed because .load() doesn't work on cached images
+  function triggerCallback() {
+    callback.call( _this, $images );
+  }
 
-	// callback function gets image collection as argument
-	//  this is the container
+  function imgLoaded() {
+    if ( --len <= 0 && this.src !== blank ){
+      setTimeout( triggerCallback );
+      $images.unbind( 'load error', imgLoaded );
+    }
+  }
 
-	// original: mit license. paul irish. 2010.
-	// contributors: Oren Solomianik, David DeSandro, Yiannis Chatzikonstantinou
+  if ( !len ) {
+    triggerCallback();
+  }
 
-	$.fn.imagesLoaded 		= function( callback ) {
-	var $images = this.find('img'),
-		len 	= $images.length,
-		_this 	= this,
-		blank 	= 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+  $images.bind( 'load error',  imgLoaded ).each( function() {
+    if (this.complete || this.complete === undefined){
+      var src = this.src;
 
-	function triggerCallback() {
-		callback.call( _this, $images );
-	}
+      this.src = blank;
+      this.src = src;
+    }
+  });
 
-	function imgLoaded() {
-		if ( --len <= 0 && this.src !== blank ){
-			setTimeout( triggerCallback );
-			$images.unbind( 'load error', imgLoaded );
-		}
-	}
+  return this;
+  };
 
-	if ( !len ) {
-		triggerCallback();
-	}
+  // gallery container
+  var $rgGallery      = $('#rg-gallery'),
+  // carousel container
+  $esCarousel     = $rgGallery.find('div.es-carousel-wrapper'),
+  // the carousel items
+  $items        = $esCarousel.find('ul > li'),
+  // total number of items
+  itemsCount      = $items.length;
 
-	$images.bind( 'load error',  imgLoaded ).each( function() {
-		if (this.complete || this.complete === undefined){
-			var src = this.src;
+  Gallery       = (function() {
+      // index of the current item
+    var current     = 0,
+      // mode : carousel || fullview
+      mode      = 'carousel',
+      // control if one image is being loaded
+      anim      = false,
+      init      = function() {
 
-			this.src = blank;
-			this.src = src;
-		}
-	});
+        // (not necessary) preloading the images here...
+        $items.add('<img src="/assets/ajax-loader.gif"/>').imagesLoaded( function() {
+          // add options
+          _addViewModes();
 
-	return this;
-	};
+          // add large image wrapper
+          _addImageWrapper();
 
-	// gallery container
-	var $rgGallery			= $('#rg-gallery'),
-	// carousel container
-	$esCarousel			= $rgGallery.find('div.es-carousel-wrapper'),
-	// the carousel items
-	$items				= $esCarousel.find('ul > li'),
-	// total number of items
-	itemsCount			= $items.length;
+          // show first image
+          _showImage( $items.eq( current ) );
 
-	Gallery				= (function() {
-			// index of the current item
-		var current			= 0,
-			// mode : carousel || fullview
-			mode 			= 'carousel',
-			// control if one image is being loaded
-			anim			= false,
-			init			= function() {
+        });
 
-				// (not necessary) preloading the images here...
-				$items.add('<img src="/assets/ajax-loader.gif"/>').imagesLoaded( function() {
-					// add options
-					_addViewModes();
+        // initialize the carousel
+          if( mode === 'carousel' )
+        _initCarousel();
 
-					// add large image wrapper
-					_addImageWrapper();
+      },
+      _initCarousel = function() {
 
-					// show first image
-					_showImage( $items.eq( current ) );
+        // we are using the elastislide plugin:
+        // http://tympanus.net/codrops/2011/09/12/elastislide-responsive-carousel/
+        $esCarousel.show().elastislide({
+          imageW  : 65,
+          onClick : function( $item ) {
+            if( anim ) return false;
+            anim  = true;
+            // on click show image
+            _showImage($item);
+            // change current
+            current = $item.index();
+          }
+        });
 
-				});
+        // set elastislide's current to current
+        $esCarousel.elastislide( 'setCurrent', current );
 
-				// initialize the carousel
-					if( mode === 'carousel' )
-				_initCarousel();
+      },
+      _addViewModes = function() {
 
-			},
-			_initCarousel	= function() {
+        // top right buttons: hide / show carousel
 
-				// we are using the elastislide plugin:
-				// http://tympanus.net/codrops/2011/09/12/elastislide-responsive-carousel/
-				$esCarousel.show().elastislide({
-					imageW 	: 65,
-					onClick	: function( $item ) {
-						if( anim ) return false;
-						anim	= true;
-						// on click show image
-						_showImage($item);
-						// change current
-						current	= $item.index();
-					}
-				});
+        var $viewfull = $('<a href="#" class="rg-view-full"></a>'),
+          $viewthumbs = $('<a href="#" class="rg-view-thumbs rg-view-selected"></a>');
 
-				// set elastislide's current to current
-				$esCarousel.elastislide( 'setCurrent', current );
+        $rgGallery.prepend( $('<div class="rg-view"/>').append( $viewfull ).append( $viewthumbs ) );
 
-			},
-			_addViewModes	= function() {
+        $viewfull.bind('click.rgGallery', function( event ) {
+            if( mode === 'carousel' )
+              $esCarousel.elastislide( 'destroy' );
+            $esCarousel.hide();
+          $viewfull.addClass('rg-view-selected');
+          $viewthumbs.removeClass('rg-view-selected');
+          mode  = 'fullview';
+          return false;
+        });
 
-				// top right buttons: hide / show carousel
+        $viewthumbs.bind('click.rgGallery', function( event ) {
+          _initCarousel();
+          $viewthumbs.addClass('rg-view-selected');
+          $viewfull.removeClass('rg-view-selected');
+          mode  = 'carousel';
+          return false;
+        });
 
-				var $viewfull	= $('<a href="#" class="rg-view-full"></a>'),
-					$viewthumbs	= $('<a href="#" class="rg-view-thumbs rg-view-selected"></a>');
+          if( mode === 'fullview' )
+            $viewfull.trigger('click');
 
-				$rgGallery.prepend( $('<div class="rg-view"/>').append( $viewfull ).append( $viewthumbs ) );
+      },
+      _addImageWrapper= function() {
 
-				$viewfull.bind('click.rgGallery', function( event ) {
-						if( mode === 'carousel' )
-							$esCarousel.elastislide( 'destroy' );
-						$esCarousel.hide();
-					$viewfull.addClass('rg-view-selected');
-					$viewthumbs.removeClass('rg-view-selected');
-					mode	= 'fullview';
-					return false;
-				});
+        // adds the structure for the large image and the navigation buttons (if total items > 1)
+        // also initializes the navigation events
 
-				$viewthumbs.bind('click.rgGallery', function( event ) {
-					_initCarousel();
-					$viewthumbs.addClass('rg-view-selected');
-					$viewfull.removeClass('rg-view-selected');
-					mode	= 'carousel';
-					return false;
-				});
+        $('#img-wrapper-tmpl').tmpl( {itemsCount : itemsCount} ).appendTo( $rgGallery );
 
-					if( mode === 'fullview' )
-						$viewfull.trigger('click');
+        if( itemsCount > 1 ) {
+          // addNavigation
+          var $navPrev    = $rgGallery.find('a.rg-image-nav-prev'),
+            $navNext    = $rgGallery.find('a.rg-image-nav-next'),
+            $imgWrapper   = $rgGallery.find('div.rg-image');
 
-			},
-			_addImageWrapper= function() {
+          $navPrev.bind('click.rgGallery', function( event ) {
+            _navigate( 'left' );
+            return false;
+          });
 
-				// adds the structure for the large image and the navigation buttons (if total items > 1)
-				// also initializes the navigation events
+          $navNext.bind('click.rgGallery', function( event ) {
+            _navigate( 'right' );
+            return false;
+          });
 
-				$('#img-wrapper-tmpl').tmpl( {itemsCount : itemsCount} ).appendTo( $rgGallery );
+          // add touchwipe events on the large image wrapper
+          $imgWrapper.touchwipe({
+            wipeLeft      : function() {
+              _navigate( 'right' );
+            },
+            wipeRight     : function() {
+              _navigate( 'left' );
+            },
+            preventDefaultEvents: false
+          });
 
-				if( itemsCount > 1 ) {
-					// addNavigation
-					var $navPrev		= $rgGallery.find('a.rg-image-nav-prev'),
-						$navNext		= $rgGallery.find('a.rg-image-nav-next'),
-						$imgWrapper		= $rgGallery.find('div.rg-image');
+          $(document).bind('keyup.rgGallery', function( event ) {
+            if (event.keyCode == 39)
+              _navigate( 'right' );
+            else if (event.keyCode == 37)
+              _navigate( 'left' );
+          });
 
-					$navPrev.bind('click.rgGallery', function( event ) {
-						_navigate( 'left' );
-						return false;
-					});
+        }
 
-					$navNext.bind('click.rgGallery', function( event ) {
-						_navigate( 'right' );
-						return false;
-					});
+      },
+      _navigate   = function( dir ) {
 
-					// add touchwipe events on the large image wrapper
-					$imgWrapper.touchwipe({
-						wipeLeft			: function() {
-							_navigate( 'right' );
-						},
-						wipeRight			: function() {
-							_navigate( 'left' );
-						},
-						preventDefaultEvents: false
-					});
+        // navigate through the large images
 
-					$(document).bind('keyup.rgGallery', function( event ) {
-						if (event.keyCode == 39)
-							_navigate( 'right' );
-						else if (event.keyCode == 37)
-							_navigate( 'left' );
-					});
+        if( anim ) return false;
+        anim  = true;
 
-				}
+        if( dir === 'right' ) {
+          if( current + 1 >= itemsCount )
+            current = 0;
+          else
+            ++current;
+        }
+        else if( dir === 'left' ) {
+          if( current - 1 < 0 )
+            current = itemsCount - 1;
+          else
+            --current;
+        }
 
-			},
-			_navigate		= function( dir ) {
+        _showImage( $items.eq( current ) );
 
-				// navigate through the large images
+      },
+      _showImage    = function( $item ) {
 
-				if( anim ) return false;
-				anim	= true;
+        // shows the large image that is associated to the $item
 
-				if( dir === 'right' ) {
-					if( current + 1 >= itemsCount )
-						current = 0;
-					else
-						++current;
-				}
-				else if( dir === 'left' ) {
-					if( current - 1 < 0 )
-						current = itemsCount - 1;
-					else
-						--current;
-				}
+        var $loader = $rgGallery.find('div.rg-loading').show();
 
-				_showImage( $items.eq( current ) );
+        $items.removeClass('selected');
+        $item.addClass('selected');
 
-			},
-			_showImage		= function( $item ) {
+        var $thumb    = $item.find('img'),
+          largesrc  = $thumb.data('large'),
+          title   = $thumb.data('description');
 
-				// shows the large image that is associated to the $item
+        $('<img/>').load( function() {
 
-				var $loader	= $rgGallery.find('div.rg-loading').show();
+          $rgGallery.find('div.rg-image').empty().append('<img src="' + largesrc + '"/>');
 
-				$items.removeClass('selected');
-				$item.addClass('selected');
+          if( title )
+            $rgGallery.find('div.rg-caption').show().children('p').empty().text( title );
 
-				var $thumb		= $item.find('img'),
-					largesrc	= $thumb.data('large'),
-					title		= $thumb.data('description');
+          $loader.hide();
 
-				$('<img/>').load( function() {
+          if( mode === 'carousel' ) {
+            $esCarousel.elastislide( 'reload' );
+            $esCarousel.elastislide( 'setCurrent', current );
+          }
 
-					$rgGallery.find('div.rg-image').empty().append('<img src="' + largesrc + '"/>');
+          anim  = false;
 
-					if( title )
-						$rgGallery.find('div.rg-caption').show().children('p').empty().text( title );
+        }).attr( 'src', largesrc );
 
-					$loader.hide();
+      };
 
-					if( mode === 'carousel' ) {
-						$esCarousel.elastislide( 'reload' );
-						$esCarousel.elastislide( 'setCurrent', current );
-					}
+    return { init : init };
 
-					anim	= false;
+  })();
 
-				}).attr( 'src', largesrc );
-
-			};
-
-		return { init : init };
-
-	})();
-
-	Gallery.init();
+  Gallery.init();
 });

@@ -7,11 +7,13 @@
     %meta{:content => "initial-scale=1.0", :name => "viewport"}
     %meta{:content => "The Bandung Coffee Festival is a show dedicated to celebrating all that's new and exciting on the coffee landscape", :name => "description"}/
     %link{:href => "assets/layout-mini.png.png", :rel => "shortcut icon"}/
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    :javascript
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
     = csrf_meta_tags
     %body
       = render 'shared/header'
       = yield
-      = javascript_include_tag 'body', 'data-turbolinks-track' => true
+      = javascript_include_tag 'body'
       = render 'shared/footer'
