@@ -10,16 +10,17 @@
           = link_to "Learn more", about_path, class: 'button btn1 btn-8 btn-8b'
         .col_1_of_3.span_1_of_3
           = link_to "Tweets by @bdg_coffee", "https://twitter.com/bdg_coffee", class: "twitter-timeline", :"data-dnt" => true, :"data-widget-id" => "524416786469376001"
-          :javascript
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
         .col_1_of_3.span_1_of_3
           %h3 Contact info
           .footer-list
             %ul
               %li
                 %img{:alt => "", :src => "/assets/address.png"}/
-                %p
-                  MG COFFEE ACADEMY, Setrasari Mall kav C2 no 31, Jl. Prof. Dr. Ir. Soetami, Bandung - West Java, Indonesia
+                %p MG COFFEE ACADEMY, Setrasari Mall kav C2 no 31, Jl. Prof. Dr. Ir. Soetami, Bandung - West Java, Indonesia
+                .clear
+              %li
+                %img{:alt => "", :src => "/assets/phone.png"}/
+                %p Phone/WA : +6282226524674 | LINE : mgcoffeeacademy | BB : 7F76A3D2
                 .clear
               %li
                 %img{:alt => "", :src => "/assets/msg.png"}/

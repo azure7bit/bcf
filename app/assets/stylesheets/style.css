@@ -371,7 +371,7 @@ span.small{
 	color: #FFF;
 	font-size: 0.8999em;
 	line-height: 1.8em;
-	text-align: center;
+	/*text-align: center;*/
 }
 /*--content-middle--*/
 .content-middle{
@@ -3698,7 +3698,4 @@ li:hover > ul {
 	margin-left: 20px;
 	max-width: 300px;
 	height: auto;
-}
-.left-text p{
-text-align:left;
 }

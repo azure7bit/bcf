@@ -5,6 +5,5 @@
 //= require jquery.wookmark
 //= require custom/imagesload
 //= require custom/flexisel
-//= require jquery.flexisel
 
 $('.example1').wmuSlider();

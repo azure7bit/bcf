@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 // require_tree .
 //= require jquery.mixitup.min
 //= require custom/filterlist
 //= require jquery.magnific-popup
 //= require custom/popup-zoom-anim
+//= require jquery.flexisel
