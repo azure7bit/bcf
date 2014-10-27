@@ -80,4 +80,5 @@ Rails.application.routes.draw do
   get 'exhibitions', to: 'home#exhibitions', as: 'exhibitions'
   get 'auctions', to: 'home#auctions', as: 'auctions'
   get 'download', to: 'home#download_map', as: 'download'
+  get 'event', to: 'home#event', as: 'event'
 end
