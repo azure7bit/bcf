@@ -71,7 +71,7 @@ Rails.application.routes.draw do
   #   end
   root to: "home#index"
 
-  get 'portofolio', to: 'home#portofolio', as: 'portofolio'
+  get 'gallery', to: 'home#gallery', as: 'gallery'
   get 'about', to: 'home#about', as: 'about'
   get 'contact', to: 'home#contact', as: 'contact'
   get 'faq', to: 'home#faq', as: 'faq'
