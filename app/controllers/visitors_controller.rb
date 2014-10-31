@@ -27,10 +27,15 @@ class VisitorsController < ApplicationController
     @visitor = Visitor.new(visitor_params)
 
     respond_to do |format|
-      if @visitor.save
-        # format.html { redirect_to @visitor, notice: 'Visitor was successfully created.' }
-        format.html { redirect_to contact_path, notice: 'Visitor was successfully created.' }
-        format.json { render :show, status: :created, location: @visitor }
+      if verify_recaptcha
+        if @visitor.save
+          # format.html { redirect_to @visitor, notice: 'Visitor was successfully created.' }
+          format.html { redirect_to contact_path, notice: 'Message send successfully.' }
+          format.json { render :show, status: :created, location: @visitor }
+        else
+          format.html { render :new }
+          format.json { render json: @visitor.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :new }
         format.json { render json: @visitor.errors, status: :unprocessable_entity }

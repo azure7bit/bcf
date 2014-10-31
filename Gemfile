@@ -57,3 +57,4 @@ gem 'carrierwave'
 gem 'thin'
 gem 'countries'
 gem 'friendly_id'
+gem "recaptcha", :require => "recaptcha/rails"

@@ -1,0 +1,10 @@
+- if notice || alert
+  %div{:class => "alert alert-#{notice ? 'success' : 'danger'} alert-dismissable", :style => "margin-top: 58px;"}
+    - if notice
+      %i.fa.fa-check
+    - else
+      %i.fa.fa-ban
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} ×
+    %b
+      = notice ? notice : alert
+.clear

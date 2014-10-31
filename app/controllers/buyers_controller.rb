@@ -27,14 +27,18 @@ class BuyersController < ApplicationController
     @buyer = Buyer.new(buyer_params)
 
     respond_to do |format|
-      if @buyer.save
-        # format.html { redirect_to @buyer, notice: 'Buyer was successfully created.' }
-        # format.json { render :show, status: :created, location: @buyer }
-        format.html { redirect_to root_path, notice: 'Buyer was successfully created.' }
+      if verify_recaptcha
+        if @buyer.save
+          # format.html { redirect_to @buyer, notice: 'Buyer was successfully created.' }
+          # format.json { render :show, status: :created, location: @buyer }
+          format.html { redirect_to root_path, notice: 'Buyer was successfully created.' }
+        else
+          format.html { render :new }
+          # format.json { render json: @buyer.errors, status: :unprocessable_entity }
+          # format.html { redirect_to root_path, alert: @buyer.error }
+        end
       else
-        # format.html { render :new }
-        # format.json { render json: @buyer.errors, status: :unprocessable_entity }
-        format.html { redirect_to root_path, alert: @buyer.error }
+        format.html { render :new }
       end
     end
   end

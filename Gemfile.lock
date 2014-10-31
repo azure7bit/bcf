@@ -162,6 +162,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    recaptcha (0.3.6)
     remotipart (1.2.1)
     safe_yaml (1.0.4)
     sass (3.2.19)
@@ -233,6 +234,7 @@ DEPENDENCIES
   rails (= 4.1.1)
   rails_12factor
   rails_admin
+  recaptcha
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring

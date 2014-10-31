@@ -37,6 +37,8 @@
               .clear
               = f.phone_field :website, class: "text", placeholder: "Website...", onfocus: "this.value = '';", onblur: "if (this.value == '') {this.value = 'Website...';}", required: true
               .clear
+              = recaptcha_tags
+              .clear
             = f.submit :register, value: "Register", class: 'submit'
         .lsidebar.span_1_of_about
           %h5.leave Contact Info

@@ -27,13 +27,13 @@ class BaristaController < ApplicationController
     @baristum = Baristum.new(baristum_params)
 
     respond_to do |format|
-      if @baristum.save
-        # format.html { redirect_to @baristum, notice: 'Baristum was successfully created.' }
-        # format.json { render :show, status: :created, location: @baristum }
-        format.html { redirect_to root_path, notice: 'Baristum was successfully created.' }
+      if verify_recaptcha
+        if @baristum.save
+          format.html { redirect_to root_path, notice: 'Baristum was successfully created.' }
+        else
+          format.html { render :new }
+        end
       else
-        # format.html { render :new }
-        # format.json { render json: @baristum.errors, status: :unprocessable_entity }
         format.html { redirect_to root_path, alert: @buyer.error }
       end
     end
